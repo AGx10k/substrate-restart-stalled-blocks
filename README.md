@@ -21,5 +21,5 @@ currently this is only tested with centrifuge running in docker
 
 TODO:
 
-0. systemctl
+0. systemctl support
 1. telegram notif
