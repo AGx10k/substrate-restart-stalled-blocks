@@ -1,8 +1,8 @@
 #!/bin/bash
 ######### vars
-prometheus_port=9616
+prometheus_port=9616 #### default installation is 9615
 prometheus_host="127.0.0.1"
-docker_image_name="centrifuge-amber-validator"
+docker_container_name="centrifuge-amber-validator"
 ####metric_peers="substrate_peers_count"
 metric_height='substrate_block_height_number'
 log_time_zone="UTC"
@@ -24,8 +24,8 @@ function check_number() {
 }
 
 function restart_daemon() {
-        log "docker restart $docker_image_name -t 60"
-        docker restart $docker_image_name -t 60
+        log "docker restart $docker_container_name -t 60"
+        docker restart $docker_container_name -t 60
 }
 
 function get_metrics() {
