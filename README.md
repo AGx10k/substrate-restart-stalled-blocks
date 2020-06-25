@@ -16,3 +16,10 @@ currently this is only tested with centrifuge running in docker
     * prometheus_port
     * docker_container_name
 2. if you are running without docker, you can change `restart_daemon()` to be like `systemctl restart $your_service_name`
+3. run in screen/tmux/any other background you like
+
+
+TODO:
+
+0. systemctl
+1. telegram notif
