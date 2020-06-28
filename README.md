@@ -25,7 +25,7 @@ TODO:
 1. telegram notif
 
 
-log:
+example log from this case https://github.com/centrifuge/centrifuge-chain/issues/259:
 ```
 2020-06-28 00:29:49 block old=1355392, new=1355402 OK
 2020-06-28 00:30:49 block old=1355402, new=1355406 OK
