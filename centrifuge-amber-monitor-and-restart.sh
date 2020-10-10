@@ -4,7 +4,7 @@ prometheus_port=9616 #### default installation is 9615
 prometheus_host="127.0.0.1"
 docker_container_name="centrifuge-amber-validator"
 ####metric_peers="substrate_peers_count"
-metric_height='substrate_block_height_number'
+metric_height='substrate_block_height'
 log_time_zone="UTC"
 
 
