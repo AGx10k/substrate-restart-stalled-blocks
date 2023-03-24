@@ -1,10 +1,26 @@
 #!/bin/bash
-######### vars
+######### default vars
 prometheus_port=9615 #### default installation is 9615
 prometheus_host="127.0.0.1"
 service_name="kusama-validator"
 metric_height='substrate_block_height'
 log_time_zone="UTC"
+max_fails_to_restart=5
+
+###command-line args
+### -p port (default 9615)
+### -h host (default 127.0.0.1)
+### -s service name (default kusama-validator)
+### -m maximum errors before restartt (default 5)
+while getopts p:h:s:m: flag
+do
+    case "${flag}" in
+        p) prometheus_port=${OPTARG};;
+        h) prometheus_host=${OPTARG};;
+        s) service_name=${OPTARG};;
+        m) max_fails_to_restart=${OPTARG};;
+    esac
+done
 
 
 ############### functions
@@ -71,7 +87,7 @@ log "block=$old_block"
 while :; do
         sleep 1m
 
-        if (( consecutive_fails >= 5 )); then
+        if (( consecutive_fails >= max_fails_to_restart )); then
                 log "5 consecutive fails! will restart daemon!"
                 restart_daemon
                 log "sleep 2m to let it connect to network..."
